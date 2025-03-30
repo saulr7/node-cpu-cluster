@@ -9,21 +9,29 @@ const DATABASE = process.env.DATABASE || "testDB";
 const DATABASE_CLUSTER = process.env.DATABASE_CLUSTER || "localhost";
 
 const setupDatabase = async () => {
-    const DB_URL = `postgres://${USERNAME}:${PASSWORD}@${DATABASE_CLUSTER}:${PORT}/${DATABASE}`;
+    try {
+        const DB_URL = `postgres://${USERNAME}:${PASSWORD}@${DATABASE_CLUSTER}:${PORT}/${DATABASE}`;
 
-    const dbClient = new Client(DB_URL);
-    console.log("Setting up the database...");
+        const dbClient = new Client(DB_URL);
+        dbClient.connect();
+        console.log("Setting up the database...");
 
-    await dbClient.query(`CREATE DATABASE ${DATABASE};`);
-    await dbClient.query(`
-          CREATE TABLE if not exists users  (
+        try {
+            await dbClient.query(`CREATE DATABASE ${DATABASE};`);
+        } catch (e) {}
+
+        await dbClient.query(`
+          CREATE TABLE if not exists users2  (
             id bigserial not null,
             name varchar(100) not null,
             password varchar(100) not null,
             active bool not null default true,
             created_at timestamp default now ());
         `);
-    console.log("Database created successfully.");
+        console.log("Database created successfully.");
+    } catch (e) {
+        // console.log(e);
+    }
 };
 
 const setUp = async () => {
