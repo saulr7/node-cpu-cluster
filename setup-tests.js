@@ -9,14 +9,12 @@ const DATABASE = process.env.DATABASE || "postgres";
 const DATABASE_CLUSTER = process.env.DATABASE_CLUSTER || "postgres";
 
 const setupDatabase = async () => {
-    try {
-        const DB_URL = `postgres://${USERNAME}:${PASSWORD}@${DATABASE_CLUSTER}:${PORT}/${DATABASE}`;
-        console.log(DB_URL, USERNAME);
+    const DB_URL = `postgres://${USERNAME}:${PASSWORD}@${DATABASE_CLUSTER}:${PORT}/${DATABASE}`;
 
-        const dbClient = new Client(DB_URL);
-        dbClient.connect();
+    const dbClient = new Client(DB_URL);
+    dbClient.connect();
 
-        await dbClient.query(`
+    await dbClient.query(`
           CREATE TABLE if not exists users  (
             id bigserial not null,
             name varchar(100) not null,
@@ -24,17 +22,10 @@ const setupDatabase = async () => {
             active bool not null default true,
             created_at timestamp default now ());
         `);
-    } catch (e) {
-        console.log(e);
-    }
 };
 
 const setUp = async () => {
-    try {
-        await setupDatabase();
-    } catch (e) {
-        console.log(e);
-    }
+    await setupDatabase();
 };
 
 setUp();
