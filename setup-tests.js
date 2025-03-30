@@ -20,7 +20,7 @@ const setupDatabase = async () => {
         try {
             await dbClient.query(`CREATE DATABASE ${DATABASE};`);
         } catch (e) {
-            console.log(e);
+            // console.log(e);
         }
 
         await dbClient.query(`
