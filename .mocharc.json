@@ -1,0 +1,6 @@
+{
+    "parallel": true,
+    "extension": ["ts"],
+    "timeout": "0",
+    "require": ["./setup-tests.js"]
+}
