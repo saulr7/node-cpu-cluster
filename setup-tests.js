@@ -38,7 +38,11 @@ const setupDatabase = async () => {
 };
 
 const setUp = async () => {
-    await setupDatabase();
+    try {
+        await setupDatabase();
+    } catch (e) {
+        console.log(e);
+    }
 };
 
 setUp();
