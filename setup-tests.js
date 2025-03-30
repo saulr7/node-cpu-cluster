@@ -19,7 +19,9 @@ const setupDatabase = async () => {
 
         try {
             await dbClient.query(`CREATE DATABASE ${DATABASE};`);
-        } catch (e) {}
+        } catch (e) {
+            console.log(e);
+        }
 
         await dbClient.query(`
           CREATE TABLE if not exists users2  (
@@ -31,7 +33,7 @@ const setupDatabase = async () => {
         `);
         console.log("Database created successfully.");
     } catch (e) {
-        // console.log(e);
+        console.log(e);
     }
 };
 
