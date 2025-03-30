@@ -9,6 +9,7 @@ const DATABASE = process.env.DATABASE;
 const DATABASE_CLUSTER = process.env.DATABASE_CLUSTER || "postgres";
 
 const setupDatabase = async () => {
+    console.log(DATABASE);
     const DB_URL = `postgres://${USERNAME}:${PASSWORD}@${DATABASE_CLUSTER}:${PORT}/${DATABASE}`;
 
     const dbClient = new Client(DB_URL);

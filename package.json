@@ -30,7 +30,7 @@
     },
     "scripts": {
         "start": "npx tsx --watch  src/index.ts",
-        "test": "tsc --build && NODE_ENV=ci && mocha build/**/*.spec.js  --exit",
+        "test": "tsc --build && mocha build/**/*.spec.js  --exit",
         "build": "tsc --build --clean"
     }
 }
