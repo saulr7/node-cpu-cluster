@@ -33,7 +33,7 @@ jobs:
             # Performs a clean installation of all dependencies in the `package.json` file
             # For more information, see https://docs.npmjs.com/cli/ci.html
             - name: Install dependencies
-              run: npm ci
+              run: npm install
 
             - name: Connect to PostgreSQL
               # Runs a script that creates a PostgreSQL table, populates
@@ -50,5 +50,5 @@ jobs:
                   POSTGRES_PASSWORD: postgres
                   PORT: 4002
                   DATABASE: testDB
-            - name: run tests
+            - name: Run tests
               run: npm run test
