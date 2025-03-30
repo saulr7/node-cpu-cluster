@@ -1,7 +1,7 @@
 const PORT = process.env.DATABASE_PORT || 5432;
 const USERNAME = process.env.DATABASE_USERNAME || "postgres";
 const PASSWORD = encodeURIComponent(process.env.DATABASE_PASSWORD || "postgres");
-const DATABASE = process.env.DATABASE || "postgres";
+const DATABASE = process.env.DATABASE;
 const DATABASE_CLUSTER = process.env.DATABASE_CLUSTER || "postgres";
 
 const DB_URL = `postgres://${USERNAME}:${PASSWORD}@${DATABASE_CLUSTER}:${PORT}/${DATABASE}`;
