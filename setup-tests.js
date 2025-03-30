@@ -5,7 +5,7 @@ require("dotenv").config();
 const PORT = process.env.DATABASE_PORT || 5432;
 const USERNAME = process.env.DATABASE_USERNAME || "postgres";
 const PASSWORD = encodeURIComponent(process.env.DATABASE_PASSWORD || "postgres");
-const DATABASE = process.env.DATABASE || "testDB";
+const DATABASE = process.env.DATABASE || "postgres";
 const DATABASE_CLUSTER = process.env.DATABASE_CLUSTER || "localhost";
 
 const setupDatabase = async () => {
