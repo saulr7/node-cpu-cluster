@@ -43,7 +43,6 @@ jobs:
                   # The default PostgreSQL port
                   POSTGRES_PORT: 5432
                   DATABASE_USERNAME: postgres
-                  DATABASE_USERNAME: postgres
                   DATABASE_CLUSTER: postgres
                   POSTGRES_PASSWORD: postgres
                   PORT: 4002
