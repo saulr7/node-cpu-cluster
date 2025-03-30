@@ -11,6 +11,7 @@ const DATABASE_CLUSTER = process.env.DATABASE_CLUSTER || "localhost";
 const setupDatabase = async () => {
     try {
         const DB_URL = `postgres://${USERNAME}:${PASSWORD}@${DATABASE_CLUSTER}:${PORT}/${DATABASE}`;
+        console.log({ DB_URL });
 
         const dbClient = new Client(DB_URL);
         dbClient.connect();
