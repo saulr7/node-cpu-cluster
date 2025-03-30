@@ -1,0 +1,36 @@
+{
+    "name": "server",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "dependencies": {
+        "@types/bull": "^4.10.4",
+        "@types/chai": "^5.2.1",
+        "@types/dotenv": "^8.2.3",
+        "@types/express": "^5.0.1",
+        "@types/ioredis": "^5.0.0",
+        "@types/mocha": "^10.0.10",
+        "@types/moment": "^2.13.0",
+        "@types/pg": "^8.11.11",
+        "@types/promise-retry": "^1.1.6",
+        "@types/redis": "^4.0.11",
+        "@types/sinon": "^17.0.4",
+        "@types/supertest": "^6.0.3",
+        "bull": "^4.16.5",
+        "chai": "^5.2.0",
+        "dotenv": "^16.4.7",
+        "express": "^4.21.2",
+        "ioredis": "^5.6.0",
+        "mocha": "^11.1.0",
+        "moment": "^2.30.1",
+        "pg": "^8.14.1",
+        "promise-retry": "^2.0.1",
+        "sinon": "^20.0.0",
+        "supertest": "^7.1.0"
+    },
+    "scripts": {
+        "start": "npx tsx --watch  src/index.ts",
+        "test": "tsc --build && NODE_ENV=ci && mocha build/**/*.spec.js  --exit",
+        "build": "tsc --build --clean"
+    }
+}
