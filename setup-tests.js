@@ -15,13 +15,6 @@ const setupDatabase = async () => {
 
         const dbClient = new Client(DB_URL);
         dbClient.connect();
-        console.log("Setting up the database...");
-
-        try {
-            await dbClient.query(`CREATE DATABASE ${DATABASE};`);
-        } catch (e) {
-            // console.log(e);
-        }
 
         await dbClient.query(`
           CREATE TABLE if not exists users2  (
@@ -31,7 +24,6 @@ const setupDatabase = async () => {
             active bool not null default true,
             created_at timestamp default now ());
         `);
-        console.log("Database created successfully.");
     } catch (e) {
         console.log(e);
     }
