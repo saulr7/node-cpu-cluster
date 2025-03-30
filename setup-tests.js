@@ -17,7 +17,7 @@ const setupDatabase = async () => {
         dbClient.connect();
 
         await dbClient.query(`
-          CREATE TABLE if not exists users2  (
+          CREATE TABLE if not exists users  (
             id bigserial not null,
             name varchar(100) not null,
             password varchar(100) not null,
