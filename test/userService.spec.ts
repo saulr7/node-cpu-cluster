@@ -4,7 +4,7 @@ import { masterDb } from "../src/shared/postgtres";
 
 const { query } = masterDb;
 
-describe.skip("userService", function () {
+describe("userService", function () {
     let userService: UserService;
     this.beforeAll(async () => {
         userService = new UserService();
